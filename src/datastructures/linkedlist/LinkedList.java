@@ -65,7 +65,37 @@ public class LinkedList {
         length--;
         return tempNode;
     }
-
+    public void prepend(int value){
+        Node objNode=new Node(value);
+        if(this.getLength()==0){
+            this.setHead(objNode);
+            this.setTail(objNode);
+        }else{
+            objNode.setNext(this.getHead());
+            this.setHead(objNode);
+        }
+        this.setLength(this.getLength()+1);
+    }
+    public Node removeFirst(){
+        Node removedNode=null;
+        switch(length){
+            case 0:
+                System.out.println("List is empty");
+                break;
+            case 1:
+                removedNode=head;
+                head=null;
+                tail=null;
+                length=0;
+                break;
+            default:
+                removedNode= this.getHead();
+                this.setHead(this.getHead().getNext());
+                this.setLength(length-1);
+                break;
+        }
+        return removedNode;
+    }
     @ToString
     class Node{
 

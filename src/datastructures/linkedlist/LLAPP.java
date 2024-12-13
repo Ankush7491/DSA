@@ -4,14 +4,15 @@ public class LLAPP {
 
     public static void main(String[] args) {
         LinkedList linkedList= new LinkedList(78);
-        System.out.println(linkedList.getHead());
-        System.out.println(linkedList.getTail());
         linkedList.append(90);
         linkedList.append(790);
+        linkedList.prepend(74);
         System.out.println(linkedList.getTail());
         linkedList.printList();
         System.out.println(linkedList.removeLast());
         System.out.println(linkedList.getTail());
+        System.out.println(linkedList.removeFirst());
+        System.out.println(linkedList.getHead());
         linkedList.printList();
     }
 }
