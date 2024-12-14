@@ -155,6 +155,19 @@ public class LinkedList {
         }
         return null;
     }
+    public void reverse(){
+        Node temp=this.getHead();
+        this.head=this.getTail();
+        this.tail=temp;
+        Node after=temp.getNext();
+        Node before=null;
+        for (int i = 0; i < this.getLength(); i++) {
+            after=temp.getNext();
+            temp.next=before;
+            before =temp;
+            temp=after;
+        }
+    }
     @ToString
     class Node{
 
