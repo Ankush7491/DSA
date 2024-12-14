@@ -13,6 +13,10 @@ public class LLAPP {
         System.out.println(linkedList.removeFirst());
         System.out.println(linkedList.get(1));
         linkedList.set(1,91);
+        linkedList.insert(2,92);
         linkedList.printList();
+        linkedList.remove(1);
+        linkedList.printList();
+
     }
 }
