@@ -7,12 +7,12 @@ public class LLAPP {
         linkedList.append(90);
         linkedList.append(790);
         linkedList.prepend(74);
-        System.out.println(linkedList.getTail());
+        System.out.println(linkedList.get(2));
         linkedList.printList();
         System.out.println(linkedList.removeLast());
-        System.out.println(linkedList.getTail());
         System.out.println(linkedList.removeFirst());
-        System.out.println(linkedList.getHead());
+        System.out.println(linkedList.get(1));
+        linkedList.set(1,91);
         linkedList.printList();
     }
 }

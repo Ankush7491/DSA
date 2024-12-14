@@ -84,6 +84,7 @@ public class LinkedList {
                 break;
             case 1:
                 removedNode=head;
+                removedNode.setNext(null);
                 head=null;
                 tail=null;
                 length=0;
@@ -92,9 +93,29 @@ public class LinkedList {
                 removedNode= this.getHead();
                 this.setHead(this.getHead().getNext());
                 this.setLength(length-1);
+                removedNode.setNext(null);
                 break;
         }
         return removedNode;
+    }
+    public Node get(int index){
+        if(this.getLength()==0) return null;
+        if(index<0||index>=this.getLength()) return null;
+        Node node =this.getHead();
+        int counter=0;
+        while(counter!=index){
+            node=node.getNext();
+            counter++;
+        }
+        return node;
+    }
+    public boolean set(int index, int value){
+        if(this.get(index)!=null)
+        {
+            this.get(index).setValue(value);
+            return true;
+        }
+        return false;
     }
     @ToString
     class Node{
