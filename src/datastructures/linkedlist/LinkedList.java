@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @ToString
 public class LinkedList {
     @Getter @Setter private Node head;
@@ -164,10 +167,12 @@ public class LinkedList {
             Node after = this.getHead().getNext();
             Node before = null;
             for (int i = 0; i < this.getLength(); i++) {
+                if(temp!=null){
                 after = temp.getNext();
                 temp.next = before;
                 before = temp;
                 temp = after;
+                }
             }
         }
     }
@@ -234,6 +239,32 @@ public class LinkedList {
         }
         return slowNode;
     }
+    public void removeDuplicates(){
+        if(head!=null) {
+            Node currentNode = head;
+            Node beforeNode =null;
+            Set hashSet = new HashSet<Integer>();
+            while (currentNode != null) {
+                if(!hashSet.contains(currentNode.value))
+                {
+                    hashSet.add(currentNode.value );
+                    beforeNode=currentNode;
+
+                }
+                else{
+                    beforeNode.next=currentNode.next;
+                    //  Node temp=currentNode.next;
+                    //    currentNode.next=null;
+                    //   currentNode=temp;
+                    length--;
+                }
+
+                currentNode=currentNode.next;
+            }
+        }
+    }
+
+
     @ToString
     class Node{
 
