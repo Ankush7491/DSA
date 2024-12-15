@@ -212,6 +212,28 @@ public class LinkedList {
 
         return false;
     }
+    public Node findKthFromEnd(int k){
+        if(head==null) return null;
+        if(head.next==null&&k==1) return  head;
+        if(head.next==null&&k>1) return null;
+        Node temp=head;
+        Node slowNode=head;
+        Node fasterNode=head;
+        for (int i = 0; i < k; i++) {
+            if(fasterNode!=null)
+            fasterNode=fasterNode.next;
+            else return null;
+        }
+
+        if(fasterNode!=null) {
+            while (fasterNode != null) {
+                    fasterNode=fasterNode.next;
+                    slowNode=slowNode.next;
+
+            }
+        }
+        return slowNode;
+    }
     @ToString
     class Node{
 
