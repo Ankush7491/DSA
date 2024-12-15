@@ -3,7 +3,11 @@ package datastructures.linkedlist;
 public class LLAPP {
 
     public static void main(String[] args) {
-        LinkedList linkedList= new LinkedList(78);
+        LinkedList linkedList= new LinkedList(1);
+        linkedList.append(1);
+        linkedList.prepend(1);
+        linkedList.append(0);
+        System.out.println(linkedList.binaryToDecimal());
         linkedList.append(90);
         linkedList.append(790);
         linkedList.prepend(74);

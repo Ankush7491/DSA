@@ -77,4 +77,14 @@ public class ListNode {
             }
         }
     }
+    public int binaryToDecimal(ListNode head){
+        int sum=0;
+        if(head==null) return sum;
+        ListNode currentNode=head;
+        while(currentNode!=null){
+            sum=2*sum+currentNode.val;
+            currentNode=currentNode.next;
+        }
+        return sum;
+    }
 }

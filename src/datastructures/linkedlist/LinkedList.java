@@ -263,7 +263,16 @@ public class LinkedList {
             }
         }
     }
-
+    public int binaryToDecimal(){
+        int sum=0;
+        if(head==null) return sum;
+        Node currentNode=head;
+        while(currentNode!=null){
+            sum=2*sum+currentNode.value;
+            currentNode=currentNode.next;
+        }
+        return sum;
+    }
 
     @ToString
     class Node{
