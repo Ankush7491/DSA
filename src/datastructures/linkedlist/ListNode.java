@@ -1,5 +1,8 @@
 package datastructures.linkedlist;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ListNode {
     int val;
     ListNode next;
@@ -49,5 +52,29 @@ public class ListNode {
         }
 
         return false;
+    }
+    public void removeDuplicates(ListNode head){
+        if(head!=null) {
+            ListNode currentNode = head;
+            ListNode beforeNode =null;
+            Set hashSet = new HashSet<Integer>();
+            while (currentNode != null) {
+                if(!hashSet.contains(currentNode.val))
+                {
+                    hashSet.add(currentNode.val );
+                    beforeNode=currentNode;
+
+                }
+                else{
+                    beforeNode.next=currentNode.next;
+                    //  Node temp=currentNode.next;
+                    //    currentNode.next=null;
+                    //   currentNode=temp;
+                   // length--;
+                }
+
+                currentNode=currentNode.next;
+            }
+        }
     }
 }
