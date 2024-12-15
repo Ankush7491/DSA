@@ -156,17 +156,40 @@ public class LinkedList {
         return null;
     }
     public void reverse(){
-        Node temp=this.getHead();
-        this.head=this.getTail();
-        this.tail=temp;
-        Node after=temp.getNext();
-        Node before=null;
-        for (int i = 0; i < this.getLength(); i++) {
-            after=temp.getNext();
-            temp.next=before;
-            before =temp;
-            temp=after;
+        if(this.getHead()!=null) {
+            Node temp = this.getHead();
+            this.head = this.getTail();
+            this.tail = temp;
+
+            Node after = this.getHead().getNext();
+            Node before = null;
+            for (int i = 0; i < this.getLength(); i++) {
+                after = temp.getNext();
+                temp.next = before;
+                before = temp;
+                temp = after;
+            }
         }
+    }
+    public Node findMiddleNode(){
+        Node middleNode=null;
+        int length=0;
+        if(this.getHead()==null) return null;
+        if(this.getHead()==this.getTail()) return this.getTail();
+        middleNode=this.getHead();
+        Node temp=middleNode.next;
+        Node fasterNode=null;
+        fasterNode=temp.next;
+        if(fasterNode!=null) {
+            while (fasterNode.next != null) {
+                temp=fasterNode.next;
+                fasterNode=temp.next;
+                middleNode=middleNode.next;
+                if(fasterNode==null)
+                    return middleNode.next;
+            }
+        }
+        return middleNode.next;
     }
     @ToString
     class Node{

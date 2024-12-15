@@ -7,6 +7,9 @@ public class LLAPP {
         linkedList.append(90);
         linkedList.append(790);
         linkedList.prepend(74);
+        linkedList.prepend(890);
+        linkedList.printList();
+        System.out.println("middlenode"+linkedList.findMiddleNode());
         System.out.println(linkedList.get(2));
         linkedList.printList();
         System.out.println(linkedList.removeLast());
