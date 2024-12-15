@@ -191,6 +191,27 @@ public class LinkedList {
         }
         return middleNode.next;
     }
+    public boolean hasLoop(){
+        if(head==null) return false;
+        if(head.next==null) return false;
+        Node slowNode=head;
+        Node temp= head.next;
+        Node fasterNode=temp.next;
+        if(fasterNode!=null){
+            while(fasterNode.next!=null){
+                if(fasterNode.next==slowNode)
+                    return true;
+                temp=fasterNode.next;
+                fasterNode=temp.next;
+                if(fasterNode==null)
+                    return false;
+                slowNode=slowNode.next;
+
+            }
+        }
+
+        return false;
+    }
     @ToString
     class Node{
 
