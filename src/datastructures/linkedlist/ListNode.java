@@ -29,4 +29,25 @@ public class ListNode {
         }
         return middleNode.next;
     }
+    public boolean hasCycle(ListNode head){
+        if(head==null) return false;
+        if(head.next==null) return false;
+        ListNode slowNode=head;
+        ListNode temp= head.next;
+        ListNode fasterNode=temp.next;
+        if(fasterNode!=null){
+            while(fasterNode.next!=null){
+                if(fasterNode.next==slowNode)
+                    return true;
+                temp=fasterNode.next;
+                fasterNode=temp.next;
+                if(fasterNode==null)
+                    return false;
+                slowNode=slowNode.next;
+
+            }
+        }
+
+        return false;
+    }
 }
