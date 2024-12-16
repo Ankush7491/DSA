@@ -33,7 +33,22 @@ public class DoublyLinkedList {
 
         length++;
     }
-
+    public Node removeLast(){
+        Node removedNode=null;
+        if(head==null) return null;
+        if(head.next==null){
+            removedNode=this.head;
+            this.head=null;
+            this.tail=null;
+            length=0;
+            return removedNode;
+        }
+        removedNode=this.tail;
+        this.tail=this.tail.prev;
+        this.tail.next=null;
+        length--;
+        return removedNode;
+    }
     public void prepend(int value){
         Node newNode=new Node(value);
 
