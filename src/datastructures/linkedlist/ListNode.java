@@ -87,4 +87,35 @@ public class ListNode {
         }
         return sum;
     }
+    public ListNode partitionList(int x,ListNode head){
+        if(head!=null){
+
+            ListNode currentNode=head;
+            ListNode leftHead=new ListNode(0);
+            ListNode rightHead=new ListNode(0);
+            ListNode leftChain=leftHead;
+            ListNode rightChain=rightHead;
+            ListNode equalHead=new ListNode(0);
+            ListNode equalNode=equalHead;
+            while(currentNode!=null){
+                if(currentNode.val<x){
+                    leftChain.next=currentNode;
+                    leftChain=leftChain.next;
+                } else if (currentNode.val==x) {
+                    equalNode.next=currentNode;
+                    equalNode=equalNode.next;
+                } else if (currentNode.val>x) {
+                    rightChain.next=currentNode;
+                    rightChain=rightChain.next;
+                }
+                currentNode=currentNode.next;
+            }
+            rightChain.next=null;
+            equalNode.next=rightHead.next;
+            leftChain.next=equalHead.next;
+
+            head=leftHead.next;
+        }
+        return head;
+    }
 }

@@ -4,15 +4,19 @@ public class LLAPP {
 
     public static void main(String[] args) {
         LinkedList linkedList= new LinkedList(1);
-        linkedList.append(1);
-        linkedList.prepend(1);
-        linkedList.append(0);
-        System.out.println(linkedList.binaryToDecimal());
+//        linkedList.append(1);
+//        linkedList.prepend(1);
+//        linkedList.append(0);
+//        System.out.println(linkedList.binaryToDecimal());
         linkedList.append(90);
         linkedList.append(790);
         linkedList.prepend(74);
         linkedList.prepend(90);
+        System.out.println("before partition");linkedList.printList();
+        linkedList.partitionList(1);
+        System.out.println("after partition");
         linkedList.printList();
+        System.out.println("after partition end");
         linkedList.removeDuplicates();
         linkedList.printList();
         System.out.println(linkedList.findKthFromEnd(2));

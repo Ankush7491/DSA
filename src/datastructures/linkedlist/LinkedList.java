@@ -273,6 +273,37 @@ public class LinkedList {
         }
         return sum;
     }
+    public void partitionList(int x){
+        if(head!=null){
+
+            Node currentNode=head;
+            Node leftHead=new Node(0);
+            Node rightHead=new Node(0);
+            Node leftChain=leftHead;
+            Node rightChain=rightHead;
+            Node equalHead=new Node(0);
+            Node equalNode=equalHead;
+            while(currentNode!=null){
+                if(currentNode.value<x){
+                    leftChain.next=currentNode;
+                    leftChain=leftChain.next;
+                } else if (currentNode.value==x) {
+                    equalNode.next=currentNode;
+                    equalNode=equalNode.next;
+                } else if (currentNode.value>x) {
+                    rightChain.next=currentNode;
+                    rightChain=rightChain.next;
+                }
+                currentNode=currentNode.next;
+            }
+            rightChain.next=null;
+            equalNode.next=rightHead.next;
+            leftChain.next=equalHead.next;
+
+            head=leftHead.next;
+        }
+
+    }
 
     @ToString
     class Node{
