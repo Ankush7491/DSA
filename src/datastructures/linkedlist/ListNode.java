@@ -88,34 +88,56 @@ public class ListNode {
         return sum;
     }
     public ListNode partitionList(int x,ListNode head){
-        if(head!=null){
+        if(head==null) return null;
+        // Step 2: Create two dummy nodes.
+        // These dummy nodes act as placeholders
+        // to simplify list manipulation.
+        ListNode dummy1 = new ListNode(0);
+        ListNode dummy2 = new ListNode(0);
 
-            ListNode currentNode=head;
-            ListNode leftHead=new ListNode(0);
-            ListNode rightHead=new ListNode(0);
-            ListNode leftChain=leftHead;
-            ListNode rightChain=rightHead;
-            ListNode equalHead=new ListNode(0);
-            ListNode equalNode=equalHead;
-            while(currentNode!=null){
-                if(currentNode.val<x){
-                    leftChain.next=currentNode;
-                    leftChain=leftChain.next;
-                } else if (currentNode.val==x) {
-                    equalNode.next=currentNode;
-                    equalNode=equalNode.next;
-                } else if (currentNode.val>x) {
-                    rightChain.next=currentNode;
-                    rightChain=rightChain.next;
-                }
-                currentNode=currentNode.next;
+        // Step 3: Initialize pointers for new lists.
+        // 'prev1' and 'prev2' will track the end nodes of
+        // the two lists that are being created.
+        ListNode prev1 = dummy1;
+        ListNode prev2 = dummy2;
+
+        // Step 4: Start with the head of the original list.
+        ListNode current = head;
+
+        // Step 5: Iterate through the original list.
+        while (current != null) {
+
+            // Step 6: Compare current node val with 'x'.
+            // Nodes are partitioned based on their val
+            // being less than or greater than/equal to 'x'.
+
+            // Step 6.1: If val is less than 'x',
+            // add node to the first list.
+            if (current.val < x) {
+                prev1.next = current;  // Link node to the end of the first list.
+                prev1 = current;       // Update the end pointer of the first list.
+            } else {
+                // Step 6.2: If val is greater or equal,
+                // add node to the second list.
+                prev2.next = current;  // Link node to the end of the second list.
+                prev2 = current;       // Update the end pointer of the second list.
             }
-            rightChain.next=null;
-            equalNode.next=rightHead.next;
-            leftChain.next=equalHead.next;
 
-            head=leftHead.next;
+            // Move to the next node in the original list.
+            current = current.next;
         }
+
+        // Step 7: Terminate the second list.
+        // This prevents cycles in the list.
+        prev2.next = null;
+
+        // Step 8: Connect the two lists.
+        // The first list is followed by the second list.
+        prev1.next = dummy2.next;
+
+        // Step 9: Update the head of the original list.
+        // The head now points to the start of the first list.
+        head = dummy1.next;
         return head;
     }
 }

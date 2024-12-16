@@ -290,7 +290,7 @@ public class LinkedList {
                 } else if (currentNode.value==x) {
                     equalNode.next=currentNode;
                     equalNode=equalNode.next;
-                } else if (currentNode.value>x) {
+                } else  {
                     rightChain.next=currentNode;
                     rightChain=rightChain.next;
                 }
