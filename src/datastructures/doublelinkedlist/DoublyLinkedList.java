@@ -51,6 +51,15 @@ public class DoublyLinkedList {
     }
     public void prepend(int value){
         Node newNode=new Node(value);
+        if(head==null) {
+            this.head=newNode;
+            this.tail=newNode;
+        }else{
+            newNode.next=this.head;
+            this.head.prev=newNode;
+            this.head=newNode;
+        }
+        length++;
 
     }
     public void printList(){
