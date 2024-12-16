@@ -41,11 +41,13 @@ public class DoublyLinkedList {
             this.head=null;
             this.tail=null;
             length=0;
+            removedNode.prev=null;
             return removedNode;
         }
         removedNode=this.tail;
         this.tail=this.tail.prev;
         this.tail.next=null;
+        removedNode.prev=null;
         length--;
         return removedNode;
     }
