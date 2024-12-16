@@ -62,6 +62,22 @@ public class DoublyLinkedList {
         length++;
 
     }
+    public Node removeFirst(){
+        Node removedNode=null;
+        if(this.head==null) return null;
+        removedNode=this.head;
+
+        if(this.length==1){
+            this.head=null;
+            this.tail=null;
+        }else{
+            this.head=this.head.next;
+            this.head.prev=null;
+        }
+        removedNode.next=null;
+        length--;
+        return removedNode;
+    }
     public void printList(){
         Node currentNode=head;
         while(currentNode!=null){
