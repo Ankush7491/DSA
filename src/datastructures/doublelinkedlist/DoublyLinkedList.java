@@ -87,6 +87,57 @@ public class DoublyLinkedList {
             currentNode=currentNode.next;
         }
     }
+    public Node get(int index){
+        Node temp=null;
+        if(index<0||index>=length) return null;
+        if(index<length/2){
+            temp=head;
+            for (int i = 0; i < length; i++) {
+                if(i==index) return temp;
+                 temp=temp.next;
+            }
+        }else{
+            temp=tail;
+            for (int j = length-1; j >=0; j--) {
+                if(j==index)
+                    return temp;
+                 temp=temp.prev;
+            }
+        }
+
+        return temp;
+    }
+    public boolean set(int index,int value){
+        Node temp=get(index);
+        if(temp!=null)
+        {
+            temp.value=value;
+            return true;
+        }
+        return false;
+    }
+    public boolean insert(int index, int value){
+        Node toBeInserted=new Node(value);
+        if(index==0)
+        {
+            this.prepend(value);
+            return true;
+        } else if (index==length) {
+            this.append(value);
+            return true;
+        }
+        if (index>length||index<0) {
+            return false;
+        }
+        Node before=get(index-1);
+        toBeInserted.next=before.next;
+        toBeInserted.prev=before;
+        before.next=toBeInserted;
+        Node after=toBeInserted.next;
+        after.prev=toBeInserted;
+        length++;
+        return true;
+    }
     @ToString
     class Node{
         int value;
