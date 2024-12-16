@@ -138,6 +138,19 @@ public class DoublyLinkedList {
         length++;
         return true;
     }
+    public Node remove(int index){
+        if(index<0||index>=length) return null;
+        if(index==0) return this.removeFirst();
+        if(index==length-1) return this.removeLast();
+        Node before=this.get(index-1);
+        Node removedNode=before.next;
+        before.next=removedNode.next;
+        removedNode.next.prev=before;
+        removedNode.next=null;
+        removedNode.prev=null;
+        length--;
+        return removedNode;
+    }
     @ToString
     class Node{
         int value;

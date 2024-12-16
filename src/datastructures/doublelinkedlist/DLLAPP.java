@@ -8,6 +8,7 @@ public class DLLAPP {
         doublyLinkedList.append(56);
         doublyLinkedList.printList();
         System.out.println(doublyLinkedList.insert(1,4));
+        System.out.println(doublyLinkedList.remove(1));
         doublyLinkedList.printList();
         System.out.println("removed Node"+doublyLinkedList.removeLast().value);
         doublyLinkedList.prepend(29);
