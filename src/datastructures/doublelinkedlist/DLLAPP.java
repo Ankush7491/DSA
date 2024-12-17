@@ -7,6 +7,8 @@ public class DLLAPP {
         doublyLinkedList.append(13);
         doublyLinkedList.append(56);
         doublyLinkedList.printList();
+        doublyLinkedList.swapFirstLast();
+        doublyLinkedList.printList();
         System.out.println(doublyLinkedList.insert(1,4));
         System.out.println(doublyLinkedList.remove(1));
         doublyLinkedList.printList();

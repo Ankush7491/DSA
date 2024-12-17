@@ -83,9 +83,10 @@ public class DoublyLinkedList {
     public void printList(){
         Node currentNode=head;
         while(currentNode!=null){
-            System.out.println(currentNode.value);
+            System.out.print(currentNode.value+ "  ");
             currentNode=currentNode.next;
         }
+        System.out.println("End List");
     }
     public Node get(int index){
         Node temp=null;
@@ -150,6 +151,13 @@ public class DoublyLinkedList {
         removedNode.prev=null;
         length--;
         return removedNode;
+    }
+    public void swapFirstLast(){
+        if(this.head==this.tail) return;
+        int val=0;
+        val=this.head.value;
+        this.head.value=this.tail.value;
+        this.tail.value=val;
     }
     @ToString
     class Node{
