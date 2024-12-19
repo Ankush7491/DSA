@@ -159,6 +159,23 @@ public class DoublyLinkedList {
         this.head.value=this.tail.value;
         this.tail.value=val;
     }
+    public void reverse(){
+        if(this.head==null) return;
+        Node temp=this.head;
+        Node after=temp.next;
+        Node before=null;
+        this.head=this.tail;
+        this.tail=temp;
+        while(temp!=null){
+            temp.next=before;
+            before=temp;
+            temp.prev=after;
+            temp=after;
+            if(after!=null)
+            after=after.next;
+        }
+
+    }
     @ToString
     class Node{
         int value;
