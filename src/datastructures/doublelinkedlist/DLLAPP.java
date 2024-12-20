@@ -4,12 +4,16 @@ public class DLLAPP {
 
     public static void main(String[] args) {
         DoublyLinkedList doublyLinkedList= new DoublyLinkedList(7);
-        doublyLinkedList.append(13);
-        doublyLinkedList.append(56);
-        System.out.println(doublyLinkedList.insert(1,4));
+        doublyLinkedList.append(4);
+        doublyLinkedList.append(3);
+        System.out.println(doublyLinkedList.insert(1,8));
+        doublyLinkedList.append(12);
+        doublyLinkedList.append(89);
+        doublyLinkedList.printList();
+        doublyLinkedList.swapPairs();
+        System.out.println("isPailindrome"+doublyLinkedList.isPalindrome());
         doublyLinkedList.printList();
         doublyLinkedList.reverse();
-        doublyLinkedList.printList();
         doublyLinkedList.swapFirstLast();
         System.out.println(doublyLinkedList.remove(1));
         doublyLinkedList.printList();

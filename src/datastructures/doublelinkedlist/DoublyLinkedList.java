@@ -1,6 +1,7 @@
 package datastructures.doublelinkedlist;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
@@ -176,12 +177,91 @@ public class DoublyLinkedList {
         }
 
     }
+    public boolean isPalindrome(){
+        if(this.head==null) return true;
+        if(this.head==this.tail) return true;
+        Node tempForward=this.head;
+        Node tempBackward=this.tail;
+        while(tempForward.value==tempBackward.value){
+            tempForward=tempForward.next;
+            tempBackward=tempBackward.prev;
+            if(tempForward==tempBackward)
+                return true;
+        }
+
+        return false;
+    }
+    public void swapPairsnotworking(){
+        if(this.head==null) return;
+        if(this.head.next==null) return;
+        Node temp=new Node(0);
+        temp.next=head;
+        Node before =temp;
+        Node node1=this.head;
+        Node node2=this.head.next;
+        Node after=null;
+        if(node2!=null)
+          after=node2.next;
+        while(node2!=null){
+            swapNodes(node1,node2);
+          //  printList();
+            before=node1;
+            node1=node1.next;
+            if(node1!=null)
+            {
+                node1.prev=before;
+                node2=node1.next;
+                node2.prev=node1;
+                after=node2.next;
+            }
+           // printList();
+        }
+    }
+    public void swapNodes(Node node1,Node node2){
+        if(node1==null||node2==null) return;
+        Node before=node1.prev;
+        node1.next=node2.next;
+        node1.prev=node2;
+        node2.prev=before;
+        node2.next=node1;
+
+    }
+    public void swapPairs(){
+        Node dummyNode = new Node(0);
+        dummyNode.next = head;
+        Node previousNode = dummyNode;
+
+        while (head != null && head.next != null) {
+            Node firstNode = head;
+            Node secondNode = head.next;
+
+            previousNode.next = secondNode;
+            firstNode.next = secondNode.next;
+            secondNode.next = firstNode;
+
+            secondNode.prev = previousNode;
+            firstNode.prev = secondNode;
+
+            if (firstNode.next != null) {
+                firstNode.next.prev = firstNode;
+            }
+
+            head = firstNode.next;
+            previousNode = firstNode;
+        }
+
+        head = dummyNode.next;
+        if (head != null) head.prev = null;
+    }
     @ToString
     class Node{
+        @Getter @Setter
         int value;
+        @Getter @Setter
         Node next;
+        @Getter @Setter
         Node prev;
-        Node(int value){
+        public Node(int value){
             this.value=value;
         }
     }
