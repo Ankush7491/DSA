@@ -227,31 +227,27 @@ public class DoublyLinkedList {
 
     }
     public void swapPairs(){
-        Node dummyNode = new Node(0);
-        dummyNode.next = head;
-        Node previousNode = dummyNode;
+       Node temp=new Node(0);
+       temp.next=head;
+       Node previous=temp;
+       while(head!=null&&head.next!=null){
+           Node firstNode=head;
+           Node secondNode=head.next;
 
-        while (head != null && head.next != null) {
-            Node firstNode = head;
-            Node secondNode = head.next;
+           previous.next=secondNode;
+           firstNode.next=secondNode.next;
+           firstNode.prev=secondNode;
+           secondNode.prev=previous;
+           secondNode.next=firstNode;
+            if(firstNode.next!=null)
+                firstNode.next.prev=firstNode;
 
-            previousNode.next = secondNode;
-            firstNode.next = secondNode.next;
-            secondNode.next = firstNode;
+           head=firstNode.next;
+           previous=firstNode;
 
-            secondNode.prev = previousNode;
-            firstNode.prev = secondNode;
-
-            if (firstNode.next != null) {
-                firstNode.next.prev = firstNode;
-            }
-
-            head = firstNode.next;
-            previousNode = firstNode;
-        }
-
-        head = dummyNode.next;
-        if (head != null) head.prev = null;
+       }
+        head=temp.next;
+       if(head!=null)head.prev=null;
     }
     @ToString
     class Node{
