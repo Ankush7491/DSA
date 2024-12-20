@@ -23,10 +23,36 @@ public class Queue {
     }
     public void printQueue(){
         if(first==null)return;
-        System.out.println("First");
         while(first!=null){
             System.out.print(first.value+" ");
             first=first.next;
         }
+    }
+    public void enqueue(int value){
+        Node newNode=new Node(value);
+        if(last!=null)
+        {
+            last.next=newNode;
+            last=newNode;
+        }else{
+            first=newNode;
+            last=newNode;
+        }
+        length++;
+    }
+    public Node dequeue(){
+        Node removedNode=null;
+        if(first==null) return removedNode;
+        if(first.next==null){
+            removedNode=first;
+            first=null;
+            last=null;
+        }else{
+            removedNode=first;
+            first=first.next;
+        }
+        removedNode.next=null;
+        length--;
+        return removedNode;
     }
 }
