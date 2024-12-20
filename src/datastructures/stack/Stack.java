@@ -21,7 +21,24 @@ public class Stack {
             top=top.next;
         }
     }
-
+    public void push(int value){
+        Node temp=new Node(value);
+        temp.next=top;
+        top=temp;
+        this.height++;
+    }
+    public Node pop(){
+        if(top==null) return null;
+        if(top.next==null){
+            this.height--;
+            return top;
+        }
+        Node removedNode=top;
+        top=top.next;
+        removedNode.next=null;
+        this.height--;
+        return removedNode;
+    }
     @ToString
     class Node{
         Node next;
