@@ -65,4 +65,35 @@ public class Stacks <T>{
 
         return reversedBuilder.toString();
     }
+    public boolean isBalancedParentheses(String inputString){
+        if(inputString==null) return  false;
+        char[] chars=inputString.toCharArray();
+        if(chars.length==1) return false;
+        for(char charValue:chars){
+            if(charValue=='(')
+                push((T)(Character)charValue);
+            if(charValue==')')
+            {
+                if(isEmpty()) return false;
+                pop();
+            }
+        }
+        return isEmpty();
+    }
+    public void sortStack(Stacks stack){
+        if(stack==null) return;
+        Stacks<Integer> sortedStack=new Stacks<>();
+        while(!stack.isEmpty())
+        {
+            Integer topOriginal=(Integer) stack.pop();
+            while(!sortedStack.isEmpty()&&sortedStack.peek()>topOriginal)
+            {
+                stack.push((Integer)sortedStack.pop());
+            }
+             sortedStack.push((Integer)topOriginal );
+        }
+        while (!sortedStack.isEmpty()) {
+            stack.push(sortedStack.pop());
+        }
+    }
 }

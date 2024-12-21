@@ -2,12 +2,22 @@ package datastructures.stack;
 
 public class ArrayStackApp {
     public static void main(String[] args) {
-        Stacks<Character> stacks=new Stacks<>();
-        System.out.println(stacks.reverseString("this is too good"));
+        MyQueue myQueue=new MyQueue();
+        myQueue.enqueue(1);
+        myQueue.enqueue(2);
+        myQueue.enqueue(3);
+        myQueue.enqueue(4);
+        myQueue.printQueue();
+        myQueue.dequeue();
+        myQueue.dequeue();
+        myQueue.printQueue();
+        Stacks<Integer> stacks=new Stacks<>();
+    //    System.out.println(stacks.isBalancedParentheses("(()))"));
+        stacks.push(89);
+        stacks.push(3);
+        stacks.push(4);
         stacks.printStack();
-//        stacks.push(89);
-//        stacks.push(3);
-//        stacks.push(4);
-//        System.out.println(stacks.pop());
+        stacks.sortStack(stacks);
+       stacks.printStack();
     }
 }
