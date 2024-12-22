@@ -15,6 +15,11 @@ public class Stacks <T>{
             System.out.print(element+" ");
         }
     }
+
+    public ArrayList<T> getStackList() {
+        return stackList;
+    }
+
     public int size(){
         return this.getStackList().size();
     }

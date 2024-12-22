@@ -23,11 +23,41 @@ public class HashTable {
                 Node firstNode=indexNode;
                 System.out.println("["+index+"]:");
                 while(firstNode!=null){
-                    System.out.print(firstNode.key+"  ="+firstNode.value+" |");
+                    System.out.println(firstNode.key+"  ="+firstNode.value+" |");
                     firstNode= firstNode.next;
                 }
                 index++;
             }
         }
+    }
+    private int hash(String key){
+        int hash=0;
+        char[] keyChars=key.toCharArray();
+        for(char keyChar:keyChars){
+            int asciiValue=keyChar;
+            hash=(hash+asciiValue*23)%dataMap.length;
+        }
+        return hash;
+    }
+    public void set(String key,int value){
+        int hash=hash(key);
+        Node toBeInserted=new Node(key,value);
+        if(dataMap[hash]==null) dataMap[hash]=toBeInserted;
+        else{
+            Node temp=dataMap[hash];
+            while(temp.next!=null) temp=temp.next;
+            temp.next=toBeInserted;
+        }
+    }
+    public int get(String key){
+        int value=0;
+        if(dataMap==null)return 0;
+        Node indexNode=dataMap[hash(key)];
+        if(indexNode==null) return 0;
+        while(indexNode!=null){
+            if(indexNode.key.equals(key)) return indexNode.value;
+            indexNode=indexNode.next;
+        }
+        return value;
     }
 }
