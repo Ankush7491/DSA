@@ -7,7 +7,9 @@ public class HTAPP  {
         hashTable.set("Hyundai",2);
         hashTable.set("TATA",3);
         hashTable.set("Lexus",89);
+        hashTable.set("Merc",90);
         hashTable.printTable();
         System.out.println(hashTable.get("TATA"));
+        System.out.println(hashTable.keys());
     }
 }
