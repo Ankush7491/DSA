@@ -38,6 +38,25 @@ public class BinarySearchTree {
         }
         return false;
     }
+
+    public boolean contains(int value){
+        if(root!=null&&root.value==value) return true;
+        Node temp=root;
+        while(temp!=null){
+            if(temp.value==value) return true;
+            if(value<temp.value){
+                if(temp.left!=null&&temp.left.value==value)
+                    return true;
+                else temp=temp.left;
+            }else{
+                if(temp.right!=null&&temp.right.value==value)
+                    return true;
+                else temp=temp.right;
+            }
+        }
+        return false;
+    }
+
     public void printTree(){
         if(root!=null)
             System.out.println(root.value);
