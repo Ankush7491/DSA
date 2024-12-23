@@ -1,11 +1,15 @@
 package datastructures.hashtable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class HTAPP  {
     public static void main(String[] args) {
-        int[] array1=new int[]{1,2,3,4};
+        int[] array1=new int[]{1,3,1,3,1};
         int[] array2=new int[]{};
+        System.out.println(findDuplicates(array1));
         System.out.println(itemInCommon(array1,array2));
         HashTable hashTable=new HashTable();
         hashTable.set("Suzuki",1);
@@ -28,5 +32,21 @@ public class HTAPP  {
                         return true;
                 }
         return false;
+    }
+    public static List<Integer>  findDuplicates(int[] array1){
+        List<Integer> duplicatesList=new ArrayList<>();
+        if(array1==null||array1.length==0) return duplicatesList;
+        Map<Integer,Boolean> arrayMap=new HashMap<>();
+        for(int intValue:array1){
+            if(arrayMap.get(intValue)==null)
+            arrayMap.put(intValue,false);
+            else {
+                if (arrayMap.get(intValue)==false)
+                duplicatesList.add(intValue);
+                arrayMap.put(intValue,true);
+            }
+        }
+
+        return duplicatesList;
     }
 }
