@@ -1,12 +1,13 @@
 package datastructures.hashtable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class HTAPP  {
     public static void main(String[] args) {
+        String[] inputArray=new String[]{"eat","ate","mate","tame","bat","pot","top","tea","post","stop","pots"};
+        System.out.println(groupAnagrams(inputArray));
+
+        System.out.println(firstNonRepeatingChar("CeettCode"));
         int[] array1=new int[]{1,3,1,3,1};
         int[] array2=new int[]{};
         System.out.println(findDuplicates(array1));
@@ -48,5 +49,52 @@ public class HTAPP  {
         }
 
         return duplicatesList;
+    }
+    public static Character firstNonRepeatingChar(String inputString){
+        Character character=null;
+        Map<Character,Boolean> dataMap=new HashMap<>();
+        if(inputString==null) return character;
+       // int indexCharacter;
+        char[] chars=inputString.toCharArray();
+        for(char c:chars){
+            if(dataMap.get(c)==null)
+            {
+                dataMap.put(c,false);
+               if(character==null)
+                character=c;
+            }
+            else{
+               dataMap.remove(c);
+               if(character!=null&&c==character)
+               character=null;
+            }
+        }
+
+        return character;
+    }
+    public static List<List<String>> groupAnagrams(String[] strings){
+        List<List<String>> anagramList=new ArrayList<>();
+        Map<Set<Character>,List<String>> mapSet =new HashMap<>();
+        for(String string:strings){
+            char[] chars=string.toCharArray();
+            Map<Character,Boolean> stringMap=new HashMap<>();
+            for(char c:chars){
+                stringMap.put(c,true);
+            }
+            List<String> list=mapSet.get(stringMap.keySet());
+            if(list==null)
+            {
+                List<String> newList=new ArrayList<>();
+                newList.add(string);
+                mapSet.put(stringMap.keySet(),newList);
+            }else{
+                    list.add(string);
+                    mapSet.put(stringMap.keySet(),list);
+            }
+        }
+       for(List<String> list: mapSet.values()){
+           anagramList.add(list);
+       }
+        return anagramList;
     }
 }
