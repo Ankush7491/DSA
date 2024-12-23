@@ -4,9 +4,19 @@ import java.util.*;
 
 public class HTAPP  {
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
+        System.out.println(Arrays.toString(twoSum(new int[]{3, 2, 4}, 6)));
+        System.out.println(Arrays.toString(twoSum(new int[]{3, 3}, 6)));
+        System.out.println(Arrays.toString(twoSum(new int[]{1, 2, 3, 4, 5}, 10)));
+        System.out.println(Arrays.toString(twoSum(new int[]{1, 2, 3, 4, 5}, 7)));
+        System.out.println(Arrays.toString(twoSum(new int[]{1, 2, 3, 4, 5}, 3)));
+        System.out.println(Arrays.toString(twoSum(new int[]{}, 0)));
+
+
+        int[] array=new int[]{7,0,5,8,4};
+        printArray(twoSum(array,4));
         String[] inputArray=new String[]{"eat","ate","mate","tame","bat","pot","top","tea","post","stop","pots"};
         System.out.println(groupAnagrams(inputArray));
-
         System.out.println(firstNonRepeatingChar("CeettCode"));
         int[] array1=new int[]{1,3,1,3,1};
         int[] array2=new int[]{};
@@ -96,5 +106,28 @@ public class HTAPP  {
            anagramList.add(list);
        }
         return anagramList;
+    }
+    public static int[] twoSum(int[] nums,int target){
+        int[] indexArray = new int[0];
+        Map<Integer,Integer> numsMap=new HashMap<>();
+        for (int i = 0; i <nums.length ; i++) {
+            int num= nums[i];
+            Integer possibleIndex=numsMap.get(target-num);
+            if(possibleIndex==null)
+            numsMap.put(num,i);
+            else{
+                indexArray=new int[2];
+                indexArray[1]=i;
+                indexArray[0]=possibleIndex.intValue();
+                return indexArray;
+            }
+        }
+        return indexArray;
+    }
+    public static void printArray(int[] array){
+        for(int num:array){
+            System.out.print(num+ "  ");
+        }
+        System.out.println(" ");
     }
 }
