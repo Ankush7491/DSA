@@ -5,7 +5,11 @@ import java.util.*;
 public class SETAPP {
 
     public static void main(String[] args) {
-
+        int[] arr1 = {1, 2, 3, 4, 3};
+        int[] arr2 = {2, 4, 6, 8, 10};
+        int target = 7;
+        List<int[]> pairs=findPairs(arr1,arr2,target);
+        for(int[] pair:pairs) System.out.println(Arrays.toString(pair));
         System.out.println(hasUniqueChars("this"));
         Integer[] array=new Integer[]{1,2,3,4,5};
         List<Integer> inputList=new ArrayList<>(Arrays.asList(array));
@@ -44,7 +48,22 @@ public class SETAPP {
     }
     public static void printSet(Set<Character> elementSet){
         for(Character element:elementSet){
-            System.out.println(element.toString()+" ");
+            System.out.print(element.toString()+" ");
         }
+    }
+    public static List<int[]> findPairs(int[] arr1, int[] arr2, int target){
+        List<int[]> pairs=new ArrayList<>();
+        if(arr1.length==0||arr2.length==0) return pairs;
+        Set<Integer> arr1Set=new HashSet<>();
+        for(int a2:arr1)arr1Set.add(a2);
+        for(int a2:arr2){
+            int complement=target-a2;
+            if(arr1Set.contains(complement))
+            {
+                int[] temp=new int[]{a2,complement};
+                pairs.add(temp);
+            }
+        }
+        return pairs;
     }
 }
