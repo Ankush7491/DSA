@@ -4,6 +4,24 @@ import java.util.*;
 
 public class HTAPP  {
     public static void main(String[] args) {
+
+        int[] nums1 = {1, 2, 3, 4, 5};
+        int target1 = 9;
+        int[] result1 = subarraySum(nums1, target1);
+        printArray(result1);
+        int[] nums2 = {-1, 2, 3, -4, 5};
+        int target2 = 0;
+        int[] result2 = subarraySum(nums2, target2);
+        printArray(result2);
+
+        int[] nums3 = {2, 3, 4, 5, 6};
+        int target3 = 3;
+        int[] result3 = subarraySum(nums3, target3);
+       printArray(result3);
+        int[] nums4 = {};
+        int target4 = 0;
+        int[] result4 = subarraySum(nums4, target4);
+      printArray(result4);
         System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
         System.out.println(Arrays.toString(twoSum(new int[]{3, 2, 4}, 6)));
         System.out.println(Arrays.toString(twoSum(new int[]{3, 3}, 6)));
@@ -129,5 +147,32 @@ public class HTAPP  {
             System.out.print(num+ "  ");
         }
         System.out.println(" ");
+    }
+    public static int[] subarraySum(int[] nums,int target){
+        int[] indexes=new int[0];
+        Map<Integer,Integer> sumMap=new HashMap<>();
+        int sum=0;
+        for (int i = 0; i <nums.length; i++) {
+           sum=sum+nums[i];
+            Integer possibleIndex=null;
+           if(sum==target){
+               possibleIndex=0;
+           }else if(sum>target){
+               int sumComplement=sum-target;
+               possibleIndex=sumMap.get(sumComplement);
+               if(possibleIndex!=null) possibleIndex++;
+           }
+           if(possibleIndex==null)
+               sumMap.put(sum,i);
+           else{
+               int indexLength=i-possibleIndex;
+               indexes=new int[2];
+               indexes[0]=possibleIndex;
+               indexes[1]=i;
+               return indexes;
+           }
+        }
+
+        return indexes;
     }
 }
