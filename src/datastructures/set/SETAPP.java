@@ -24,4 +24,8 @@ public class SETAPP {
         uniqueList=new ArrayList<>(uniqueElementSet);
         return  uniqueList;
     }
+    public static List<Integer> removeDuplicatesOptimized(List<Integer> myList) {
+        Set<Integer> uniqueSet = new HashSet<>(myList);
+        return new ArrayList<>(uniqueSet);
+    }
 }
