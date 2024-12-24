@@ -5,6 +5,12 @@ import java.util.*;
 public class SETAPP {
 
     public static void main(String[] args) {
+        int[] nums1=new int[] {1, 2, 3, 4, 5};
+        int[] nums2= new int[]{5,7,1,9,3};
+        int[] nums3=new int[] {1, 2, 2,3, 4, 5};
+        System.out.println(longestConsecutiveSequence(nums1));
+        System.out.println(longestConsecutiveSequence(nums2));
+        System.out.println(longestConsecutiveSequence(nums3));
         int[] arr1 = {1, 2, 3, 4, 3};
         int[] arr2 = {2, 4, 6, 8, 10};
         int target = 7;
@@ -65,5 +71,21 @@ public class SETAPP {
             }
         }
         return pairs;
+    }
+    public static int longestConsecutiveSequence(int[] nums){
+        int length=1;
+        if(nums==null) return 0;
+        if(nums.length==0) return 0;
+        if(nums.length==1) return length;
+        Set<Integer> numsSet=new HashSet<>();
+        for(int num:nums) numsSet.add(num);
+        for(int num:nums){
+            while(numsSet.contains(num+length))
+            {
+                length++;
+            }
+        }
+
+        return length;
     }
 }
