@@ -7,7 +7,9 @@ public class SETAPP {
     public static void main(String[] args) {
         int[] nums1=new int[] {1, 2, 3, 4, 5};
         int[] nums2= new int[]{5,7,1,9,3};
-        int[] nums3=new int[] {1, 2, 2,3, 4, 5};
+        int[] nums3=new int[] {1, 2, 2,3, 3, 5,5};
+        int[] nums4=new int[]{7};
+        System.out.println(singleNumber(nums4));
         System.out.println(Arrays.toString(intersection(nums2,nums1)));
         System.out.println(longestConsecutiveSequence(nums1));
         System.out.println(longestConsecutiveSequence(nums2));
@@ -128,5 +130,15 @@ public class SETAPP {
             index++;
         }
         return common;
+    }
+    public static int singleNumber(int[] nums) {
+        if(nums.length==1) return nums[0];
+        Set<Integer> uniqueSet=new HashSet<>();
+        for(Integer integer:nums){
+            if(uniqueSet.contains(integer))
+                uniqueSet.remove(integer);
+            else uniqueSet.add(integer);
+        }
+        return (Integer) uniqueSet.toArray()[0];
     }
 }
