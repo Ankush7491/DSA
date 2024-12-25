@@ -8,6 +8,7 @@ public class SETAPP {
         int[] nums1=new int[] {1, 2, 3, 4, 5};
         int[] nums2= new int[]{5,7,1,9,3};
         int[] nums3=new int[] {1, 2, 2,3, 4, 5};
+        System.out.println(Arrays.toString(intersection(nums2,nums1)));
         System.out.println(longestConsecutiveSequence(nums1));
         System.out.println(longestConsecutiveSequence(nums2));
         System.out.println(longestConsecutiveSequence(nums3));
@@ -87,5 +88,45 @@ public class SETAPP {
         }
 
         return length;
+    }
+    public static int[] intersection1(int[] nums1, int[] nums2) {
+        Set<Integer> intersectionSet;
+        Set<Integer> nums1Set=new HashSet<>();
+        for(Integer num1:nums1){
+            nums1Set.add(num1);
+        }
+        Set<Integer> nums2Set=new HashSet<>();
+        for(Integer num2:nums2){
+            nums2Set.add(num2);
+        }
+        intersectionSet=new HashSet<>(nums1Set);
+        intersectionSet.retainAll(nums2Set);
+        int[] common=new int[intersectionSet.size()];
+        if(common.length==0) return common;
+        int index=0;
+        for(Integer integer:intersectionSet){
+            common[index]=integer.intValue();
+            index++;
+        }
+        return common;
+    }
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> intersectionSet=new HashSet<>();
+        Set<Integer> nums1Set=new HashSet<>();
+        for(Integer num1:nums1){
+            nums1Set.add(num1);
+        }
+        for(Integer num2:nums2){
+            if(nums1Set.contains(num2))
+            intersectionSet.add(num2);
+        }
+        int[] common=new int[intersectionSet.size()];
+        if(common.length==0) return common;
+        int index=0;
+        for(Integer integer:intersectionSet){
+            common[index]=integer.intValue();
+            index++;
+        }
+        return common;
     }
 }
