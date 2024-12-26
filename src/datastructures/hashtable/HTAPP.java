@@ -5,6 +5,7 @@ import java.util.*;
 public class HTAPP  {
     public static void main(String[] args) {
 
+        System.out.println(firstUniqChar("loveleetcode"));
         int[] nums1 = {1, 2, 3, 4, 5};
         int target1 = 9;
         int[] result1 = subarraySum(nums1, target1);
@@ -99,6 +100,21 @@ public class HTAPP  {
         }
 
         return character;
+    }
+    public static int firstUniqChar(String inputString) {
+        int minimumUnique=-1;
+        Map<Character,Integer> dataMap=new HashMap<>();
+        if(inputString==null) return -1;
+        char[] chars=inputString.toCharArray();
+        for(Character c:chars) {
+            Integer occurencies=dataMap.getOrDefault(c,0)+1;
+            dataMap.put(c,occurencies);
+        }
+        System.out.println(dataMap);
+        for (int i = 0; i < chars.length; i++) {
+            if(dataMap.get(chars[i])==1)return i;
+        }
+        return minimumUnique;
     }
     public static List<List<String>> groupAnagrams(String[] strings){
         List<List<String>> anagramList=new ArrayList<>();
