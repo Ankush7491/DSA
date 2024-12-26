@@ -7,5 +7,7 @@ public class GRAPHAPP {
         graph.addVertex("B");
         System.out.println(graph.addEdge("A","B"));
         graph.printGraph();
+        System.out.println(graph.removeVertex("A"));
+        graph.printGraph();
     }
 }
