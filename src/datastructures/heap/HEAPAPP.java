@@ -2,7 +2,7 @@ package datastructures.heap;
 
 public class HEAPAPP {
     public static void main(String[] args) {
-        Heap heap=new Heap();
+        MinHeap heap=new MinHeap();
         heap.insert(99);
         heap.insert(68);
         heap.insert(52);
