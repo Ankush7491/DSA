@@ -92,4 +92,38 @@ public class BinarySearchTree {
         }
         return currentNode;
     }
+    public int minValue(Node currentNode){
+        if(currentNode.left==null) return currentNode.value;
+        return minValue(currentNode.left);
+    }
+    public void deleteNode(int value){
+        deleteNode(root,value);
+    }
+
+    private Node deleteNode(Node currentNode, int value) {
+        if(currentNode==null) return null;
+        if(value<currentNode.value){
+            currentNode.left=deleteNode(currentNode.left,value);
+        }else if(value>currentNode.value){
+            currentNode.right=deleteNode(currentNode.right,value);
+        }else{
+                if(currentNode.left==null&&currentNode.right==null)
+                    return null;
+                else if(currentNode.left!=null&&currentNode.right==null)
+                    return currentNode.left;
+                else if(currentNode.left==null&&currentNode.right!=null) {
+                    return currentNode.right;
+                }
+               else {
+                    int minValue = minValue(currentNode);
+                    currentNode.value = minValue;
+//                    while (currentNode.left!=null&&currentNode.left.value != minValue) {
+//                        currentNode=currentNode.left;
+//                    }
+//                    currentNode.left=null;
+                    currentNode.right=deleteNode(currentNode.right,minValue);
+                }
+        }
+        return currentNode;
+    }
 }

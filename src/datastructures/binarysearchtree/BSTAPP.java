@@ -9,8 +9,12 @@ public class BSTAPP {
         binarySearchTree.insert(100);
         binarySearchTree.insert(32);
         binarySearchTree.rInsert(788);
+        binarySearchTree.rInsert(7);
         binarySearchTree.printTree();
         System.out.println(binarySearchTree.contains(100));
         System.out.println(binarySearchTree.contains(67));
+        System.out.println(binarySearchTree.minValue(binarySearchTree.root));
+        binarySearchTree.deleteNode(7);
+        System.out.println(binarySearchTree.minValue(binarySearchTree.root));
     }
 }
