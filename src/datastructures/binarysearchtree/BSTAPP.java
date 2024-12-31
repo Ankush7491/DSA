@@ -8,6 +8,7 @@ public class BSTAPP {
         binarySearchTree.insert(80);
         binarySearchTree.insert(100);
         binarySearchTree.insert(32);
+        binarySearchTree.rInsert(788);
         binarySearchTree.printTree();
         System.out.println(binarySearchTree.contains(100));
         System.out.println(binarySearchTree.contains(67));
