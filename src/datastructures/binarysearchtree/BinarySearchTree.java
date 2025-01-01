@@ -156,14 +156,12 @@ public class BinarySearchTree {
         if(root==null) return output;
         output=new ArrayList<>();
         LinkedList<Node> queue=new LinkedList<>();
-        Node currentNode=root;
-        queue.add(currentNode);
+        queue.add(root);
         while(!queue.isEmpty()){
             Node removed=queue.removeFirst();
             output.add(removed.value);
             if(removed.left!=null) queue.add(removed.left);
             if(removed.right!=null) queue.add(removed.right);
-            currentNode=queue.peek();
         }
 
         return output;
