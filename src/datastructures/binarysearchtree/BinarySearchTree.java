@@ -152,6 +152,7 @@ public class BinarySearchTree {
         currentNode.left=invertTree(temp);
         return currentNode;
     }
+
     public ArrayList<Integer> BFS(){
         ArrayList<Integer> output=null;
         if(root==null) return output;
@@ -166,5 +167,31 @@ public class BinarySearchTree {
         }
 
         return output;
+    }
+    public ArrayList<Integer> DFSPreOrder(){
+        if(root==null) return null;
+        ArrayList<Integer> sequenceList=new ArrayList<>();
+        class Traverse{
+            Traverse (Node currentNode){
+                sequenceList.add(currentNode.value);
+                if(currentNode.left!=null) new Traverse(currentNode.left);
+                if(currentNode.right!=null) new Traverse(currentNode.right);
+            }
+        }
+        new Traverse(root);
+        return sequenceList;
+    }
+    public ArrayList<Integer> DFSPostOrder(){
+        if(root==null) return null;
+        ArrayList<Integer> sequenceList=new ArrayList<>();
+        class Traverse{
+             Traverse(Node currentNode){
+                if(currentNode.left!=null) new Traverse(currentNode.left);
+                if(currentNode.right!=null) new Traverse(currentNode.right);
+                sequenceList.add(currentNode.value);
+            }
+        }
+        new Traverse(root);
+        return sequenceList;
     }
 }
