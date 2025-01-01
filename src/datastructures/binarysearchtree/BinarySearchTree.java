@@ -1,5 +1,8 @@
 package datastructures.binarysearchtree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class BinarySearchTree {
     Node root;
 
@@ -147,5 +150,22 @@ public class BinarySearchTree {
         currentNode.right=invertTree(currentNode.left);
         currentNode.left=invertTree(temp);
         return currentNode;
+    }
+    public ArrayList<Integer> BFS(){
+        ArrayList<Integer> output=null;
+        if(root==null) return output;
+        output=new ArrayList<>();
+        LinkedList<Node> queue=new LinkedList<>();
+        Node currentNode=root;
+        queue.add(currentNode);
+        while(!queue.isEmpty()){
+            Node removed=queue.removeFirst();
+            output.add(removed.value);
+            if(removed.left!=null) queue.add(removed.left);
+            if(removed.right!=null) queue.add(removed.right);
+            currentNode=queue.peek();
+        }
+
+        return output;
     }
 }

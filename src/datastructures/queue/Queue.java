@@ -14,9 +14,9 @@ public class Queue {
         length=1;
     }
     @ToString
-    class Node{
+   public class Node{
         Node next;
-        int value;
+       @Getter int value;
         Node(int value){
             this.value=value;
         }
