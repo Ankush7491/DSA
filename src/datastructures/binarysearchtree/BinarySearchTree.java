@@ -2,6 +2,7 @@ package datastructures.binarysearchtree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinarySearchTree {
     Node root;
@@ -155,10 +156,10 @@ public class BinarySearchTree {
         ArrayList<Integer> output=null;
         if(root==null) return output;
         output=new ArrayList<>();
-        LinkedList<Node> queue=new LinkedList<>();
+        Queue<Node> queue=new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
-            Node removed=queue.removeFirst();
+            Node removed=queue.remove();
             output.add(removed.value);
             if(removed.left!=null) queue.add(removed.left);
             if(removed.right!=null) queue.add(removed.right);
