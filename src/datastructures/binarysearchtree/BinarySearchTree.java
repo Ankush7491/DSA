@@ -212,4 +212,15 @@ public class BinarySearchTree {
         new Traverse(root);
         return sequenceList;
     }
+    public boolean isValidBST(){
+        ArrayList<Integer> sequenceList=DFSInOrder();
+        if(sequenceList==null) return true;
+        Integer previousElement=null;
+        for(Integer element:sequenceList){
+           if(previousElement!=null&&element<=previousElement) return false;
+            previousElement=element;
+        }
+
+        return true;
+    }
 }
