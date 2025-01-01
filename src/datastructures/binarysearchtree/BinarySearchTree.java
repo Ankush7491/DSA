@@ -137,4 +137,15 @@ public class BinarySearchTree {
         currentNode.right=sortedArrayToBST(nums,midIndex+1,right);
         return currentNode;
     }
+    public void invert() {
+        root = invertTree(root);
+    }
+
+    private Node invertTree(Node currentNode) {
+        if(currentNode==null) return null;
+        Node temp=currentNode.right;
+        currentNode.right=invertTree(currentNode.left);
+        currentNode.left=invertTree(temp);
+        return currentNode;
+    }
 }
