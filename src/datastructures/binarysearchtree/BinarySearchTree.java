@@ -126,4 +126,15 @@ public class BinarySearchTree {
         }
         return currentNode;
     }
+    public void sortedArrayToBST(int[] nums) {
+        this.root = sortedArrayToBST(nums, 0, nums.length - 1);
+    }
+    private Node sortedArrayToBST(int[] nums, int left, int right){
+        if(left>right) return null;
+        int midIndex=left+(right-left)/2;
+        Node currentNode=new Node(nums[midIndex]);
+        currentNode.left=sortedArrayToBST(nums,left,midIndex-1);
+        currentNode.right=sortedArrayToBST(nums,midIndex+1,right);
+        return currentNode;
+    }
 }
