@@ -194,4 +194,22 @@ public class BinarySearchTree {
         new Traverse(root);
         return sequenceList;
     }
+    public ArrayList<Integer> DFSInOrder(){
+        if(root==null) return null;
+        ArrayList<Integer> sequenceList=new ArrayList<>();
+        class Traverse{
+            Traverse(Node currentNode){
+                if(currentNode.left!=null){
+                    new Traverse(currentNode.left);
+                }
+                sequenceList.add(currentNode.value);
+                if(currentNode.right!=null){
+                    new Traverse(currentNode.right);
+                }
+
+            }
+        }
+        new Traverse(root);
+        return sequenceList;
+    }
 }

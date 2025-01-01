@@ -13,6 +13,7 @@ public class BSTAPP {
         System.out.println(binarySearchTree.BFS());
         System.out.println(binarySearchTree.DFSPreOrder());
         System.out.println(binarySearchTree.DFSPostOrder());
+        System.out.println(binarySearchTree.DFSInOrder());
         binarySearchTree.printTree();
         System.out.println(binarySearchTree.contains(100));
         System.out.println(binarySearchTree.contains(67));
