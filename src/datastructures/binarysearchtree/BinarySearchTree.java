@@ -242,4 +242,25 @@ public class BinarySearchTree {
        }
         return element;
     }
+    public Integer kthSmallestRecurssion(int k){
+        if(root==null) return null;
+        Integer element=null;
+        Stack<Node> stack=new Stack<>();
+        boolean kfound=false;
+        class Traverse{
+            Traverse(Node currentNode){
+                if(stack.size()<k) {
+                    if (currentNode.left != null) new Traverse(currentNode.left);
+                    if(stack.size()<k){
+                        stack.push(currentNode);
+                        if (k == stack.size()) return;
+                        if (currentNode.right != null) new Traverse(currentNode.right);
+                    } else return;
+                }
+            }
+        }
+        new Traverse(root);
+        element=stack.pop().value;
+        return element;
+    }
 }
