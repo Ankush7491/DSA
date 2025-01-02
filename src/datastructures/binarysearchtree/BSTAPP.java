@@ -11,7 +11,7 @@ public class BSTAPP {
         binarySearchTree.rInsert(788);
         binarySearchTree.rInsert(7);
         System.out.println(binarySearchTree.DFSInOrder());
-        System.out.println(binarySearchTree.kthSmallestRecurssion(4));
+        System.out.println(binarySearchTree.kthSmallestRecurssion(90));
         System.out.println(binarySearchTree.kthSmallest(2));
         System.out.println(binarySearchTree.isValidBST());
         System.out.println(binarySearchTree.BFS());

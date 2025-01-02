@@ -260,6 +260,7 @@ public class BinarySearchTree {
             }
         }
         new Traverse(root);
+        if(k>stack.size()) return null;
         element=stack.pop().value;
         return element;
     }
