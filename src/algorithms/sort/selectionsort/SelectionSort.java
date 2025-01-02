@@ -13,9 +13,12 @@ public class SelectionSort {
                     min=j;
                 }
             }
-            int current=nums[i];
-            nums[i]=nums[min];
-            nums[min]=current;
+            if(i!=min){
+                int current=nums[i];
+                nums[i]=nums[min];
+                nums[min]=current;
+            }
+
         }
     }
 
