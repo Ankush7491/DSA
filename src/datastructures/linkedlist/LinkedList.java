@@ -337,7 +337,7 @@ public class LinkedList {
 
                 innerCurrentNode=innerCurrentNode.next;
             }
-            if(smallest.value!= currentNode.value)
+            if(smallest!= currentNode)
             {
                 int temp=currentNode.value;
                 currentNode.value=smallest.value;
@@ -345,6 +345,9 @@ public class LinkedList {
             }
             currentNode=currentNode.next;
         }
+    }
+    public void insertionSort(){
+
     }
     @ToString
     class Node{
