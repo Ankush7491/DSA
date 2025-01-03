@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class SelectionSort {
 
     public static void selectionSort(int[] nums){
-
         for (int i= 0; i <nums.length; i++) {
             int min=i;
             for (int j = i+1; j <nums.length ; j++) {
@@ -18,7 +17,6 @@ public class SelectionSort {
                 nums[i]=nums[min];
                 nums[min]=current;
             }
-
         }
     }
 
