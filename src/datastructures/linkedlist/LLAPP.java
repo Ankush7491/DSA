@@ -8,10 +8,13 @@ public class LLAPP {
 //        linkedList.prepend(1);
 //        linkedList.append(0);
 //        System.out.println(linkedList.binaryToDecimal());
-        linkedList.append(90);
         linkedList.append(790);
-        linkedList.prepend(74);
-        linkedList.prepend(90);
+        linkedList.append(90);
+        linkedList.prepend(40);
+        linkedList.prepend(549);
+        System.out.println("before sort");linkedList.printList();
+        linkedList.bubbleSort();
+        linkedList.printList();
         System.out.println("before partition");linkedList.printList();
         linkedList.partitionList(1);
         System.out.println("after partition");

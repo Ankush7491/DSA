@@ -22,9 +22,10 @@ public class LinkedList {
     public void printList(){
         Node temp=this.head;
         while(temp!=null){
-            System.out.println(temp.getValue());
+            System.out.print(temp.getValue()+" ");
             temp=temp.getNext();
         }
+        System.out.println("end ll");
     }
     public void append(int value){
         Node newNode= new Node(value);
@@ -304,7 +305,25 @@ public class LinkedList {
         }
 
     }
-
+    public void bubbleSort(){
+        if(head==null||head.next==null) return;
+        if(length==2&&head.next.value>head.value) return;
+        Node sortedUntil=null;
+        while(sortedUntil!=head.next){
+            Node currentNode=head;
+            while(currentNode.next!=sortedUntil){
+                Node nextNode=currentNode.next;
+                if(currentNode.value>nextNode.value)
+                {
+                    int temp = currentNode.value;
+                    currentNode.value = nextNode.value;
+                    nextNode.value = temp;
+                }
+                currentNode=currentNode.next;
+            }
+            sortedUntil=currentNode;
+        }
+    }
     @ToString
     class Node{
 
