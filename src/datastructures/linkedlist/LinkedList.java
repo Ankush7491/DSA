@@ -324,6 +324,28 @@ public class LinkedList {
             sortedUntil=currentNode;
         }
     }
+    public void selectionSort(){
+        if(head==null||head.next==null) return;
+        Node currentNode=head;
+        Node smallest,innerCurrentNode;
+        while(currentNode!=null){
+            innerCurrentNode=currentNode.next;
+            smallest=currentNode;
+            while(innerCurrentNode!=null){
+                if(innerCurrentNode.value<smallest.value)
+                    smallest=innerCurrentNode;
+
+                innerCurrentNode=innerCurrentNode.next;
+            }
+            if(smallest.value!= currentNode.value)
+            {
+                int temp=currentNode.value;
+                currentNode.value=smallest.value;
+                smallest.value=temp;
+            }
+            currentNode=currentNode.next;
+        }
+    }
     @ToString
     class Node{
 

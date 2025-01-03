@@ -13,7 +13,7 @@ public class LLAPP {
         linkedList.prepend(40);
         linkedList.prepend(549);
         System.out.println("before sort");linkedList.printList();
-        linkedList.bubbleSort();
+        linkedList.selectionSort();
         linkedList.printList();
         System.out.println("before partition");linkedList.printList();
         linkedList.partitionList(1);
