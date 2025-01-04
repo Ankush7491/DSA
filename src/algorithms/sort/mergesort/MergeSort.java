@@ -45,5 +45,6 @@ public class MergeSort {
         int[] array={4,3,8,1,9,7,4,2};
         System.out.println(Arrays.toString(merge(array1,array2)));
         System.out.println(Arrays.toString(mergeSort(array)));
+        System.out.println();
     }
 }
