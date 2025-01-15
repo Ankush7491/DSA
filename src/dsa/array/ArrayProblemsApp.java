@@ -74,4 +74,17 @@ public class ArrayProblemsApp {
 
         return new int[]{firstHighest, secondHighest};
     }
+    public static int findMissingNumberInArray(int[] arr) {
+        int n=arr.length+1;
+        int sum=(n * (n + 1)) / 2;
+        for(int element:arr){
+            sum-=element;
+        }
+        return sum;
+    }
+    @Test
+    public void testMissingNumberInArray(){
+        int[] myArray = {1,2,3,4,6,5,8};
+        Assertions.assertEquals(7,findMissingNumberInArray(myArray));
+    }
 }
