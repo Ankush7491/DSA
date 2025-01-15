@@ -152,4 +152,18 @@ public class ArrayProblemsApp {
         int[] outputArray1={1,2};
         Assertions.assertArrayEquals(outputArray1,twoSum(nums1,target1));
     }
+    public int searchInArray(int[] intArray, int valueToSearch) {
+        int index=-1;
+        if(intArray.length==0) return index;
+        for (int i = 0; i <intArray.length ; i++) {
+            if(valueToSearch==intArray[i])
+                return i;
+        }
+        return index;
+    }
+    @Test
+    public void testSearchInArray(){
+        int[] intArray = {1,2,3,4,5,6};
+        Assertions.assertEquals(5,searchInArray(intArray,6));
+    }
 }
