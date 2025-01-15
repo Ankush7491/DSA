@@ -24,9 +24,13 @@ public class TwoDimensionalArray {
             System.out.println("row "+ i);
         }
     }
-    public void insert(int row,int column,int value){
-        if(twoArray[row][column]==Integer.MIN_VALUE)
-            twoArray[row][column]=value;
-        else System.out.println("Already Occupied,cannot insert");
+    public void insert(int row,int column,int value) {
+        try {
+            if (twoArray[row][column] == Integer.MIN_VALUE)
+                twoArray[row][column] = value;
+            else System.out.println("Already Occupied,cannot insert");
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            System.out.println("Invalid Index for insertion");
+        }
     }
 }
