@@ -123,4 +123,33 @@ public class ArrayProblemsApp {
         int expectedOutput=7;
         Assertions.assertEquals(expectedOutput,removeDuplicatesLength(inputArray));
     }
+    public int[] twoSum(int[] nums, int target) {
+        int[] output=new int[2];
+        int element,complement;
+        for (int i = 0; i < nums.length ; i++) {
+            element=nums[i];
+            complement=target-element;
+            for (int j = 0 ; j <nums.length ; j++) {
+                if(i!=j&&nums[j]==complement)
+                {
+                    output[0]=i;
+                    output[1]=j;
+                    return output;
+                }
+            }
+        }
+
+        return output;
+    }
+    @Test
+    public void testTwoSum(){
+        int[] nums = {2,7,11,15};
+        int target = 9;
+        int[] outputArray={0,1};
+        Assertions.assertArrayEquals(outputArray,twoSum(nums,target));
+        int[] nums1 = {3,2,4};
+        int target1=6;
+        int[] outputArray1={1,2};
+        Assertions.assertArrayEquals(outputArray1,twoSum(nums1,target1));
+    }
 }
