@@ -2,6 +2,10 @@ package dsa.array;
 
 public class ArrayAPP {
     public static void main(String[] args) {
+       TwoDimensionalArray twoDimensionalArray=new TwoDimensionalArray(3,3);
+       twoDimensionalArray.traverse();
+
+
         SingleDimensionalArray singleDimensionalArray=new SingleDimensionalArray(9);
         singleDimensionalArray.insert(7,90);
         singleDimensionalArray.traverse();
