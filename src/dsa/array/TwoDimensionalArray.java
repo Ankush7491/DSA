@@ -40,4 +40,12 @@ public class TwoDimensionalArray {
             System.out.println("Cannot access cell");
         }
     }
+    public void findValue(int value){
+        for (int i = 0; i < twoArray.length; i++) {
+            for (int j = 0; j < twoArray[i].length; j++) {
+                if(twoArray[i][j]==value)
+                System.out.println("Value is present at the [ "+i+" ][ "+j+" ]");
+            }
+        }
+    }
 }
