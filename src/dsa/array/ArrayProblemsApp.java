@@ -166,4 +166,22 @@ public class ArrayProblemsApp {
         int[] intArray = {1,2,3,4,5,6};
         Assertions.assertEquals(5,searchInArray(intArray,6));
     }
+    public String maxProduct(int[] intArray) {
+        int firstHighest=Integer.MIN_VALUE;
+        int secondHighest=Integer.MIN_VALUE;
+        for (int i = 0; i < intArray.length; i++) {
+            if(intArray[i]>firstHighest){
+                secondHighest=firstHighest;
+                firstHighest=intArray[i];
+            }else if(secondHighest>intArray[i]){
+                secondHighest=intArray[i];
+            }
+        }
+        return Integer.toString(secondHighest)+","+Integer.toString(firstHighest);
+    }
+    @Test
+    public void testMaxProduct(){
+        int[] intArray = {10,20,30,40,50};
+        Assertions.assertEquals("40,50",maxProduct(intArray));
+    }
 }
