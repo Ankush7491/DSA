@@ -3,7 +3,7 @@ package dsa.array;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class ArrayProblemsApp {
     public static void main(String[] args) {
@@ -87,4 +87,24 @@ public class ArrayProblemsApp {
         int[] myArray = {1,2,3,4,6,5,8};
         Assertions.assertEquals(7,findMissingNumberInArray(myArray));
     }
+    public static int[] removeDuplicates(int[] arr) {
+        Arrays.sort(arr);
+        int uniques=0;
+        for (int i = 1; i <arr.length ; i++) {
+            if(arr[uniques]!=arr[i])
+            {
+             uniques++;
+             arr[uniques]=arr[i];
+            }
+        }
+        int[] uniqueArray=Arrays.copyOfRange(arr,0,uniques+1);
+        return uniqueArray;
+    }
+    @Test
+    public void testRemoveDuplicates(){
+        int[] inputArray={1,1,2,2,3,4,5,6,8,8,9};
+        int[] expectedOutput={1,2,3,4,5,6,8,9};
+        Assertions.assertArrayEquals(expectedOutput,removeDuplicates(inputArray));
+    }
+
 }
