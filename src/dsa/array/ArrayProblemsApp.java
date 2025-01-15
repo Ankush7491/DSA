@@ -106,5 +106,21 @@ public class ArrayProblemsApp {
         int[] expectedOutput={1,2,3,4,5,6,8,9};
         Assertions.assertArrayEquals(expectedOutput,removeDuplicates(inputArray));
     }
-
+    public int removeDuplicatesLength(int[] nums) {
+        int uniques=0;
+        for (int i = 1; i <nums.length ; i++) {
+            if(nums[uniques]!=nums[i])
+            {
+                uniques++;
+                nums[uniques]=nums[i];
+            }
+        }
+        return uniques+1;
+    }
+    @Test
+    public void testRemoveDuplicatesLength(){
+        int[] inputArray={1,2,2,3,5,6,8,8,9};
+        int expectedOutput=7;
+        Assertions.assertEquals(expectedOutput,removeDuplicatesLength(inputArray));
+    }
 }
