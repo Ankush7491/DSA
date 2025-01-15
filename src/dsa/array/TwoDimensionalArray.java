@@ -33,4 +33,11 @@ public class TwoDimensionalArray {
             System.out.println("Invalid Index for insertion");
         }
     }
+    public void accessCell(int row,int column){
+        try{
+            System.out.println("Cell Accessed "+row+" | "+column+" = "+twoArray[row][column]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Cannot access cell");
+        }
+    }
 }

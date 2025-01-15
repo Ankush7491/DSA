@@ -9,6 +9,7 @@ public class ArrayAPP {
         twoDimensionalArray.insert(2,1,90);
         twoDimensionalArray.insert(2,2,96);
         twoDimensionalArray.traverse();
+        twoDimensionalArray.accessCell(2,2);
         SingleDimensionalArray singleDimensionalArray=new SingleDimensionalArray(9);
         singleDimensionalArray.insert(7,90);
         singleDimensionalArray.traverse();
