@@ -3,7 +3,7 @@ package dsa.array;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class ArrayProblemsApp {
     public static void main(String[] args) {
@@ -167,21 +167,55 @@ public class ArrayProblemsApp {
         Assertions.assertEquals(5,searchInArray(intArray,6));
     }
     public String maxProduct(int[] intArray) {
-        int firstHighest=Integer.MIN_VALUE;
-        int secondHighest=Integer.MIN_VALUE;
-        for (int i = 0; i < intArray.length; i++) {
-            if(intArray[i]>firstHighest){
-                secondHighest=firstHighest;
-                firstHighest=intArray[i];
-            }else if(secondHighest>intArray[i]){
-                secondHighest=intArray[i];
+        int maxProduct = 0;
+        String pairs = "";
+        for (int i = 0; i<intArray.length; i++) {
+            for (int j = i+1; j<intArray.length; j++) {
+                if (intArray[i]*intArray[j]>maxProduct) {
+                    maxProduct = intArray[i]*intArray[j];
+                    pairs = Integer.toString(intArray[i]) + "," + Integer.toString(intArray[j]);
+                }
             }
         }
-        return Integer.toString(secondHighest)+","+Integer.toString(firstHighest);
+        return pairs;
     }
     @Test
     public void testMaxProduct(){
         int[] intArray = {10,20,30,40,50};
         Assertions.assertEquals("40,50",maxProduct(intArray));
+    }
+
+    public static boolean isUnique(int[] intArray){
+        for (int i = 0; i < intArray.length; i++) {
+            int current=intArray[i];
+            for (int j = 0; j < intArray.length; j++) {
+                if(i!=j&&intArray[j]==current)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+    @Test
+    public void testIsUnique(){
+        int[] intArray = {1,2,3,4,5,6};
+        Assertions.assertEquals(true,isUnique(intArray));
+    }
+    public boolean permutation(int[] array1, int[] array2){
+        if(array1.length!=array2.length) return false;
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+        for (int i = 0; i < array1.length; i++) {
+            if(array1[i]!=array2[i])
+                return false;
+        }
+
+        return true;
+    }
+    @Test
+    public void testPermutation(){
+        int[] array1 = {1,2,3,4,5};
+        int[] array2 = {5,1,2,3,4};
+        Assertions.assertEquals(true,permutation(array1, array2));
     }
 }
