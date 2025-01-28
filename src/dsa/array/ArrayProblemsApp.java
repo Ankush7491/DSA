@@ -201,7 +201,7 @@ public class ArrayProblemsApp {
         int[] intArray = {1,2,3,4,5,6};
         Assertions.assertEquals(true,isUnique(intArray));
     }
-    public boolean permutation(int[] array1, int[] array2){
+    public boolean permutationWithSort(int[] array1, int[] array2){
         if(array1.length!=array2.length) return false;
         Arrays.sort(array1);
         Arrays.sort(array2);
@@ -212,10 +212,42 @@ public class ArrayProblemsApp {
 
         return true;
     }
+    public boolean permutation(int[] array1, int[] array2){
+        if(array1.length!=array2.length) return false;
+        int sum1=0,sum2=0,mul1=0,mul2=0;
+        for(int array1Val:array1){
+            sum1+=array1Val;
+            mul1*=mul1;
+        }
+        for(int array2Val:array2){
+            sum2+=array2Val;
+            mul2*=mul1;
+        }
+       if(sum1!=sum2||mul1!=mul2) return false;
+        return true;
+    }
     @Test
     public void testPermutation(){
         int[] array1 = {1,2,3,4,5};
         int[] array2 = {5,1,2,3,4};
         Assertions.assertEquals(true,permutation(array1, array2));
+    }
+    public void rotateMatrix(int[][] matrix) {
+
+    }
+    public int[] reverse(int[] array){
+        for (int i = 0; i < array.length/2; i++) {
+            int middleIndex=array.length-1-i;
+            int temp=array[middleIndex];
+            array[middleIndex]=array[i];
+            array[i]=temp;
+        }
+        return array;
+    }
+    @Test
+    public void testReverse(){
+        int[] input={1,2,3,4,5};
+        int[] expected={5,4,3,2,1};
+        Assertions.assertArrayEquals(expected,reverse(input));
     }
 }
