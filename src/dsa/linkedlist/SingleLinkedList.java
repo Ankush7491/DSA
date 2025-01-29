@@ -106,6 +106,8 @@ public class SingleLinkedList {
         Node toBeDeleted=currentNode.next;
         currentNode.next=toBeDeleted.next;
         toBeDeleted.next=null;
+        if(toBeDeleted==head) head=currentNode;
+        if(toBeDeleted==tail) tail=currentNode;
         size--;
         return true;
     }
