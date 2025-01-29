@@ -111,6 +111,10 @@ public class SingleLinkedList {
         size--;
         return true;
     }
-
+    public void deleteEntireList(){
+        head=null;
+        tail=null;
+        size=0;
+    }
 
 }

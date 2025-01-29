@@ -79,4 +79,16 @@ public class LinkedListProbAPP {
         Assertions.assertEquals(false,singleLinkedList.delete(5));
         singleLinkedList.traverse();
     }
+    @Test
+    public void testDeleteAll(){
+        SingleLinkedList singleLinkedList=new SingleLinkedList(7);
+        singleLinkedList.prepend(79);
+        singleLinkedList.append(80);
+        singleLinkedList.insert(99,1);
+        singleLinkedList.append(88);
+        singleLinkedList.traverse();
+        singleLinkedList.deleteEntireList();
+        Assertions.assertEquals(null,singleLinkedList.head);
+        singleLinkedList.traverse();
+    }
 }
