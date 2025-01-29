@@ -116,5 +116,8 @@ public class SingleLinkedList {
         tail=null;
         size=0;
     }
+    public void push(int nodeValue){
+        append(nodeValue);
+    }
 
 }
